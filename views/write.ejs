@@ -1,0 +1,36 @@
+<%-include("partials/header.ejs") %>
+
+<!-- <div class="p-1 p-md-3 mb-1 rounded text-body-emphasis bg-body-secondary">
+      <div class="col-sm-6">
+        <h1 class="fw-semibold">Your Blogs</h1>
+          <a href="#" class="btn btn-dark my-2">Home</a>
+          <a href="#" class="btn btn-secondary my-2">Create</a>
+        </p>
+      </div>
+</div> -->
+
+
+<div class="mx-5">
+  <h1>Compose</h1>
+  <form action="/create" method="POST" enctype="multipart/form-data">
+    <div class="my-3 ">
+      <label for="title" class="form-label "><h4>Title</h1></label>
+      <input name="title" type="text" class="form-control border-dark-subtle" id="title" style="height: 50px" maxlength="150">
+    </div>
+    <div class="mb-3">
+      <label for="converImage" class="form-label "><h4>Cover Image</h3></label>
+      <input name="file" class="form-control" type="file" id="converImage">
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label"><h4>Content</h3></label>
+      <textarea name="content" class="form-control border-dark-subtle" id="content" style="height: 200px"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-dark">Create</button>
+  </form>
+</div>
+
+
+
+
+<%-include("partials/footer.ejs") %>
