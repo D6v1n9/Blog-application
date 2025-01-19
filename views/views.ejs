@@ -1,0 +1,45 @@
+<%-include("partials/header.ejs") %>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1 mx-5">
+
+
+    <% if (posts === undefined || posts.length == 0) { %>
+        
+      <div class="d-flex col-5 p-3 mx-auto flex-column ">
+        
+        <div class="text-center ">
+          <h1>OOPS!! No Post Here.</h1>
+          <p class="lead">
+            <button class="btn btn-dark"><a href="/compose" class="btn btn-lg btn-light fw-bold border-white bg-white">Create</a></button>
+          </p>
+        </div>
+      
+      </div>
+      <!-- <h1 class="display-4 fw-bold fst-italic" style="font-family: 'Lobster Two', serif; font-weight: 700; font-style: italic;">No Posts Create to view!!</h1> -->
+    <% } else {%>
+
+    <% posts.forEach((post) => { %>
+        <div class="col">
+            <div class="card shadow-sm w-75" <%# style="width: 350px;" %>>
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="uploads/<%=post.file%>" alt="Hii">
+              <div class="card-body">
+                <h5 class="card-text"><%= post.title %></h4>
+                <p><%= post.content.substring(0,70)%>...</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="/posts/<%=post.title%>"><button type="button" class="btn btn-sm btn-dark" >View</button></a>
+                    <a href="/posts/edit/<%=post.title%>"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                  </div>
+                  <small class="text-body-secondary">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    <% }) %>
+
+    <% } %>
+
+       
+  </div>
+
+<%-include("partials/footer.ejs") %>
